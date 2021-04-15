@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="enter a company name to look for a company" name="company">
+</form>
+<!--example of how data from the database could look on the frontend.-->
+<table>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Pay</th>
+    <th>benefits</th>
+    <th>location</th>
+    <th>status</th>
+    <th>notes</th>
+    <tr>
+        <td>Google</td>
+        <td>Janitor</td>
+        <td>5$-10$ an hour</td>
+        <td>Dental, Life</td>
+        <td>California</td>
+        <td>Declined</td>
+        <td><button>View Notes</button></td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+This web application will give users the ability keep track of their job applications and
+all the important information that they should have when applying for jobs. I created this 
+because I got tired of using google sheets.
+
+to run development server:
+python3 manage.py runserver 
+put 127.0.0.1:8000 in your favorite browser
+
+
+Tech Stack:
+Django
+Bootstrap
+HTML
+CSS
+Python
+
