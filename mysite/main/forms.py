@@ -7,9 +7,10 @@ class AddApplicationForm(forms.ModelForm):
         fields = [
             'company',
             'role',
+            'level',
             'pay',
             'benefits',
             'location',
             'notes',
-            'status'
+            'status',
         ]

@@ -14,14 +14,16 @@
     <th>location</th>
     <th>status</th>
     <th>notes</th>
-    <tr>
-        <td>Google</td>
-        <td>Janitor</td>
-        <td>5$-10$ an hour</td>
-        <td>Dental, Life</td>
-        <td>California</td>
-        <td>Declined</td>
-        <td><button>View Notes</button></td>
-    </tr>
+    {% for application in applications %}
+        <tr>
+            <td>{{application.company}}</td>
+            <td>{{application.role}}</td>
+            <td>{{application.pay}}</td>
+            <td>{{application.benefits}}</td>
+            <td>{{application.location}}</td>
+            <td>{{application.status}}</td>
+            <td>{{application.notes}}</td>
+        </tr>
+    {% endfor %}
 </table>
 {% endblock %}

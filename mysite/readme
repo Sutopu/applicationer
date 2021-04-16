@@ -1,6 +1,7 @@
 This web application will give users the ability keep track of their job applications and
 all the important information that they should have when applying for jobs. I created this 
-because I got tired of using google sheets.
+because I got tired of using google sheets. Probably not a great idea to store all the information
+
 
 to run development server:
 python3 manage.py runserver 
@@ -14,3 +15,11 @@ HTML
 CSS
 Python
 
+
+    add entries CHECK
+    remove entries
+    edit entries
+    display notes
+    frontend
+    display database entries
+    search by company name 
