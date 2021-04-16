@@ -19,7 +19,9 @@ Python
     add entries CHECK
     remove entries
     edit entries
-    display notes
+    display notes on separate page
     frontend
-    display database entries
+    display database entries CHECK
     search by company name 
+    search by role
+    search by level
