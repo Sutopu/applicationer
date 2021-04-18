@@ -18,3 +18,10 @@ def add_entry(request):
     form = AddApplicationForm()
     return render(request, "add.html", context={"form": form})
 
+
+def delete_entry(request):
+    if request.method == "POST":
+        application = Application.objects.get(id=request.POST["application_id"])
+        application.delete()
+    return redirect("main:home")
+

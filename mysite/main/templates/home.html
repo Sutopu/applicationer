@@ -25,6 +25,13 @@
             <td>{{application.location}}</td>
             <td>{{application.status}}</td>
             <td>{{application.notes}}</td>
+            <td>
+                <form action="/delete" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value={{application.id}} name="application_id">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
     {% endfor %}
 </table>
