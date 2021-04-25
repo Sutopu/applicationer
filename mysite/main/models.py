@@ -1,10 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField
 
-
-
-
-
 class Role(models.Model):
     #software engineer, software developer, web developer, etc.
     role = models.CharField(max_length=50)
