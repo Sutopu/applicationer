@@ -3,12 +3,16 @@ from django.http import HttpResponse
 from .forms import AddApplicationForm
 from .models import Application
 
+
+def home(request):
+    return render(request, "home.html")
+
 """
 display all applications
 """
-def home(request):
+def view(request):
     applications = Application.objects.all()
-    return render(request, "home.html", context= {"applications":applications})
+    return render(request, "view.html", context= {"applications":applications})
 
 """
 take values of user input in form and add them to the database
@@ -18,7 +22,7 @@ def add_entry(request):
         form = AddApplicationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("main:home")
+            return redirect("main:view")
 
     form = AddApplicationForm()
     return render(request, "add.html", context={"form": form})
@@ -32,5 +36,5 @@ def delete_entry(request):
     if request.method == "POST":
         application = Application.objects.get(id=request.POST["application_id"])
         application.delete()
-    return redirect("main:home")
+    return redirect("main:view")
 

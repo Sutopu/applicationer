@@ -22,6 +22,7 @@ app_name = 'main'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('view', views.view, name='view'),
     path('add', views.add_entry, name='add'),
     path('delete', views.delete_entry, name='delete'),
 ]
