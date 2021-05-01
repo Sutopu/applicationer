@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import AddApplicationForm
-from .models import Application
+from .models import Application, Level, Role
 
 
 def home(request):
@@ -11,8 +11,16 @@ def home(request):
 display all applications
 """
 def view(request):
+    levels = Level.objects.all()
+    roles = Role.objects.all()
+    if request.method == "POST":
+        applications = Application.objects.filter(
+            company__contains=request.POST["company_filter"],
+            role__role__contains=request.POST["role_filter"],
+            level__level__contains=request.POST["level_filter"])
+        return render(request, "view.html", context= {"applications":applications, "levels":levels, "roles":roles})
     applications = Application.objects.all()
-    return render(request, "view.html", context= {"applications":applications})
+    return render(request, "view.html", context= {"applications":applications, "levels": levels, "roles":roles})
 
 """
 take values of user input in form and add them to the database

@@ -14,4 +14,5 @@ class AddApplicationForm(forms.ModelForm):
             'location',
             'notes',
             'status',
+            'date_applied'
         ]
