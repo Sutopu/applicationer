@@ -19,7 +19,11 @@ def view(request):
             company__contains=request.POST["company_filter"],
             role__role__contains=request.POST["role_filter"],
             level__level__contains=request.POST["level_filter"],
-            status__status__contains=request.POST["status_filter"]).order_by("-date_applied")
+            status__status__contains=request.POST["status_filter"])
+        if request.POST["order_filter"] == "newest_first":
+            applications = applications.order_by("-date_applied")
+        else:
+            applications = applications.order_by("date_applied")
         return render(request, "view.html", context= {"applications":applications, "levels":levels, "roles":roles, "statuses":statuses})
     applications = Application.objects.all().order_by("-date_applied")
     return render(request, "view.html", context= {"applications":applications, "levels": levels, "roles":roles, "statuses":statuses})

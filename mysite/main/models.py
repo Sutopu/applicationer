@@ -28,7 +28,7 @@ class Application(models.Model):
     role = models.ForeignKey(Role, default=1, verbose_name="Role", on_delete=models.SET_DEFAULT)
     pay = models.CharField(max_length=30, default="N/A")
     benefits = models.TextField(default="N/A")
-    location = models.CharField(max_length=50)
+    location = models.CharField(max_length=50, default="N/A")
     notes = models.TextField(default="N/A")
     level = models.ForeignKey(Level, default=1, verbose_name="Level", on_delete=models.SET_DEFAULT)
     status = models.ForeignKey(Status, default=1, verbose_name="Status", on_delete=models.SET_DEFAULT)

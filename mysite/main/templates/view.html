@@ -30,6 +30,11 @@
                 <option value="{{status}}">{{status}}</option>
             {% endfor %}
         </select>
+        <label>Sort By</label>
+        <select name="order_filter">
+            <option value="newest_first">Newest First</option>
+            <option value="oldest_first">Oldest First</option>
+        </select>
         <input type="submit" value="Search">
     </form>
     <table class = "table table-striped table-bordered table-info">
