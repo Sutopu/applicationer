@@ -64,6 +64,7 @@
                         <input type="hidden" value={{application.id}} name="application_id">
                         <input type="submit" value="Delete">
                     </form>
+                    <button onclick="window.location.href='edit/{{application.id}}';">Edit</button>
                 </td>
             </tr>
         {% endfor %}

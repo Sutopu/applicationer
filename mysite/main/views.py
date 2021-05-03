@@ -52,3 +52,14 @@ def delete_entry(request):
         application.delete()
     return redirect("main:view")
 
+#i'd prefer to not send a pk via url
+def edit_entry(request, pk):
+    application = Application.objects.get(id=pk)
+    if request.method == "POST":
+        form = AddApplicationForm(request.POST, instance=application)
+        if form.is_valid:
+            form.save()
+        return redirect("main:view")
+    form = AddApplicationForm(instance=application)
+    return render(request, "edit.html", context={"form":form})
+
