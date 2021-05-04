@@ -57,14 +57,18 @@
                 <td>{{application.location}}</td>
                 <td>{{application.status}}</td>
                 <td>{{application.date_applied}}</td>
-                <td>{{application.notes}}</td>
+                <td>
+                    <input onclick="window.location.href='notes/{{application.id}}';" type="button" value="View Notes">
+                </td>
                 <td> 
                     <form action="/delete" method="POST">
                         {% csrf_token %}
                         <input type="hidden" value={{application.id}} name="application_id">
                         <input type="submit" value="Delete">
                     </form>
-                    <button onclick="window.location.href='edit/{{application.id}}';">Edit</button>
+                </td>
+                <td>
+                    <input onclick="window.location.href='edit/{{application.id}}';" type="button" value="Edit">
                 </td>
             </tr>
         {% endfor %}

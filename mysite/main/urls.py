@@ -26,4 +26,5 @@ urlpatterns = [
     path('add', views.add_entry, name='add'),
     path('delete', views.delete_entry, name='delete'),
     path('edit/<pk>', views.edit_entry, name='edit'),
+    path('notes/<pk>', views.view_notes, name='notes')
 ]

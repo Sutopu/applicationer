@@ -63,3 +63,7 @@ def edit_entry(request, pk):
     form = AddApplicationForm(instance=application)
     return render(request, "edit.html", context={"form":form})
 
+def view_notes(request, pk):
+    notes = Application.objects.get(id=pk).notes
+    return render(request, "notes.html", context={"notes":notes})
+
