@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import AddApplicationForm
 from .models import Application, Level, Role, Status
-
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
 
 def home(request):
     return render(request, "home.html")
@@ -66,4 +67,25 @@ def edit_entry(request, pk):
 def view_notes(request, pk):
     notes = Application.objects.get(id=pk).notes
     return render(request, "notes.html", context={"notes":notes})
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponse("logged in!")
+            else:
+                return HttpResponse("error logging in")
+        else:
+            return HttpResponse("form is not valid!")
+    form = AuthenticationForm()
+    return render(request, 'login.html', context={"form":form})
+
+def logout_request(request):
+    logout(request)
+    return redirect("main:home")
 
